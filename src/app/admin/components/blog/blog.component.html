@@ -1,0 +1,73 @@
+<div id='blogHolder' class='container-fluid p-4'>
+    <!-- Head -->
+    <div class='row'>
+        <div class='col'>
+            <p class='h1 pt-4 px-5 s-supp-cr-2 text-uppercase text-lg-left text-center'>Blog<span
+                    class='h3 text-capitalize s-supp-cr-1'> Page</span></p>
+            <hr class=' mx-5 my-4'>
+        </div>
+    </div>
+    <!-- form -->
+    <div class='row'> 
+        <div class='col s-supp-cr-1'>
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)" action="">
+                <!-- Title Inp -->
+                <div class="form-group input-group md-form form-sm form-2 pl-0 rounded">
+                    <i disabled
+                        class="btn input-group-text s-icon-btn s-icon-title s-no-rounded-right s-dark2-bg border-0 rounded-left"></i>
+                    <input type="text" name="title" ngModel required #title="ngModel" placeholder="Title..."
+                        class='form-control s-temp-btn  my-0 p-4 s-supp-bg-1-opt5 border-0 rounded-right s-no-rounded-left'>
+                </div>
+                <!-- Img Inp -->
+                <div class="form-group input-group md-form form-sm form-2 pl-0 rounded">
+                    <i disabled
+                        class="btn input-group-text s-icon-btn s-icon-img s-no-rounded-right s-dark2-bg border-0 rounded-left"></i>
+                    <input type="url" name="imgURL" ngModel required #imgURL="ngModel" placeholder="Image URL..."
+                        class='form-control s-temp-btn  my-0 p-4 s-supp-bg-1-opt5 border-0 rounded-right s-no-rounded-left'>
+                </div>
+                <!-- Content textarea -->
+                <div class="form-group input-group md-form form-sm form-2 pl-0 rounded mb-4">
+                    <i disabled
+                        class="btn input-group-text s-icon-btn s-icon-art s-no-rounded-right s-dark2-bg border-0 rounded-left"></i>
+                    <textarea
+                        name="content" ngModel required #content="ngModel"
+                        class="form-control my-0 py-4 px-4 s-supp-bg-1-opt5 border-0 rounded-right s-no-rounded-left"
+                        placeholder="Start typing..." rows="6">
+                    </textarea>
+                </div>
+                <input [disabled]='f.invalid' type="submit" class="w-100 btn btn-primary" value='Publish'>
+            </form>
+        </div>
+    </div>
+    <!-- controllers -->
+    <!-- all arts -->
+    <!-- Head -->
+    <div class='row'>
+        <div class='col'>
+            <p class='h1 pt-4 px-5 s-supp-cr-2 text-uppercase text-lg-left text-center'>All<span
+                    class='h3 text-capitalize s-supp-cr-1'> Articles</span></p>
+            <hr class=' mx-5 my-4'>
+        </div>
+    </div>
+    <!-- body -->
+    <div class='row'>
+        <div class='col'>
+            <div *ngFor='let art of articles let i = index' class="card mb-3">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{{art.imgURL}}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{art.title}}</h5>
+                            <p class="card-text">{{art.content | slice:0:200}}</p>
+                            <p class="card-text"><small class="text-muted">By {{art.author.name}} on {{art.createdAt | date}}</small></p>
+                            <!-- <button (click)='updateArt(i)' class='btn bg-primary text-white mr-2'>Update</button> -->
+                            <button (click)='deleteArt(art.id, i)' class='btn bg-danger text-white'>Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

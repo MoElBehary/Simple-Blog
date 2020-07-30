@@ -1,0 +1,26 @@
+<div class='container-fluid'>
+    <!-- Page Head -->
+    <div class='row mt-5'>
+        <div class='col'>
+            <p class='h1'>Blog Articles</p>
+        </div>
+    </div>
+    <hr class='mb-5'>
+    <!-- Articles -->
+    <div class="row row-cols-1 row-cols-md-3">
+        <div (click)='showArticle(art.id)' *ngFor='let art of articles' class="col mb-4 s-click">
+            <div class="card">
+                <img src="{{art.imgURL}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{art.title}}</h5>
+                    <p class="card-text">{{art.content | slice:0:200}}...</p>
+                </div>
+                <div class="card-footer text-center">
+                    <small class="text-muted">Created At :{{art.createdAt | date}}</small>
+                    <br>
+                    <small class="text-primary"> Created By :{{art.author.name}}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

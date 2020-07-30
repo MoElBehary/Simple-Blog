@@ -1,0 +1,47 @@
+<div *ngIf='article' class='container-fluid'>
+    <!-- Title -->
+    <div class='row mt-5'>
+        <div class='col text-center'>
+            <p class='h1'>{{article.title}}</p>
+        </div>
+    </div>
+    <!-- Info -->
+    <div class='row mt-2'>
+        <div class='col text-center'>
+            <p class='h6 text-muted'>
+                By <span class='text-dark'>{{article.author.name}}</span> on <span class='text-dark'>{{article.createdAt}}</span>
+            </p>
+        </div>
+    </div>
+    <!-- Image -->
+    <div class='row mt-2'>
+        <div class='col text-center'>
+            <img src="{{article.imgURL}}" width='600' alt="">
+        </div>
+    </div>
+    <!-- Content -->
+    <div class='row mt-5'>
+        <div class='col'>
+            <p>
+                {{article.content}}
+            </p>
+        </div>
+    </div>
+    <hr class='mt-4'>
+    <!-- Controllers -->
+    <div class='row'>
+        <div class='col'>
+            <ul class="pagination d-flex justify-content-center">
+                <li class="page-item"
+                [class.disabled]='config?.currentPage == 0'>
+                    <a (click)="getSelectedArt(artsIDs[config?.currentPage-1])" class="page-link" [routerLink]='"/user-blog/"+ artsIDs[config?.currentPage-1]' tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link">{{config?.currentPage}} of {{config?.totalItems}}</a></li>
+                <li class="page-item"
+                [class.disabled]='config?.currentPage == config?.totalItems'>
+                    <a (click)="getSelectedArt(artsIDs[config?.currentPage+1])" class="page-link" [routerLink]='"/user-blog/"+ artsIDs[config?.currentPage+1]'>Next</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
