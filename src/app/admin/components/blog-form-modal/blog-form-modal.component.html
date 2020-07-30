@@ -11,7 +11,7 @@
                 <!-- header -->
                 <div class="modal-header border-0 s-dark-bg rounded-top shadow-sm d-flex align-items-center p-4">
                     <p *ngIf="mood == 'Create'" class="modal-title s-supp-cr-1 m-auto h2" id="staticBackdropLabel">Crerate New Article</p>
-                    <p *ngIf="mood == 'Update'" class="modal-title s-supp-cr-1 m-auto h2" id="staticBackdropLabel"> Update | ArtName</p>
+                    <p *ngIf="mood == 'Update'" class="modal-title s-supp-cr-1 m-auto h2" id="staticBackdropLabel"> Update | <span class='text-warning'>{{artToUpdate.title}}</span></p>
                 </div>
                 <!-- body -->
                 <div class="modal-body s-dark2-bg">
