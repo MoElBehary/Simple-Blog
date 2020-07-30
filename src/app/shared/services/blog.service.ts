@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { Blog } from 'src/app/admin/components/blog/blog';
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
   constructor(private http: HttpClient) { }
   _url = environment.baseURL+"api/blog";
-
+  articles: Blog[] = [];
   getAllArticles(){
     return this.http.get<any>(environment.baseURL +"api/articles");
   }

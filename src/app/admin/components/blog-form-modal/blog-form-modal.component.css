@@ -1,0 +1,29 @@
+.s-icon-btn{
+    width: 60px;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.s-icon-title{
+     background-image: url('/assets/Icons/admin-blog/title.png');
+}
+.s-icon-img{
+     background-image: url('/assets/Icons/admin-blog/img.png');
+}
+.s-icon-art{
+     background-image: url('/assets/Icons/admin-blog/art.png');
+}
+.s-no-rounded-right{
+   border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+.s-save-btn{
+    transition: all ease-in-out .2s;
+}
+.s-save-btn:hover{
+  background-color:#9870E4!important;
+  color: #222222 !important;
+}
+textarea {
+    resize: none;
+}
