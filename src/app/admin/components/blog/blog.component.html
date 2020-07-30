@@ -12,7 +12,7 @@
     <!-- controllers -->
     <!-- all arts -->
     <!-- Head -->
-    <div class='row'>
+    <div class='row mt-5'>
         <div class='col'>
             <p class='h1 pt-4 px-5 s-supp-cr-2 text-uppercase text-lg-left text-center'>All<span
                     class='h3 text-capitalize s-supp-cr-1'> Articles</span></p>
@@ -40,4 +40,5 @@
             </div>
         </div>
     </div>
+    <p *ngIf='blog_serv.articles.length <=0' class='h1 s-supp-cr-1 mt-5 text-center'>There is no blog articles. <br> <span class='h6'>Create one by clicking <button (click)='openModalForm("Create")' class='btn btn-success py-1 px-3'>+</button> button up there!</span></p>
 </div>

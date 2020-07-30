@@ -22,5 +22,20 @@
                 </div>
             </div>
         </div>
+        <!-- no articles -->
     </div>
+    <p *ngIf='articles.length <=0' class='h1 s-supp-cr-1 mt-5 text-center'>
+        There is no blog articles!
+        <br> 
+        <span *ngIf='!auth_service.loggedIn()' class='h6'>Create an account by clicking 
+            <a [routerLink]="['/register']" class='text-primary'>Register</a>
+             button up there
+            or <a [routerLink]="['/login']" class='text-primary'>Login</a> if you have an account
+            <br> to get access Blog controller if you want to create an article.
+        </span>
+        <span *ngIf='auth_service.loggedIn()' class='h6'>Create new article by clicking 
+            <a [routerLink]="['/blog']" class='text-primary'>Create Blog Article</a>
+             button up there!
+        </span>
+    </p>
 </div>
