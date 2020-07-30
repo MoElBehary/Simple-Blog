@@ -32,8 +32,10 @@
                             <h5 class="card-title">{{art.title}}</h5>
                             <p class="card-text">{{art.content | slice:0:200}}</p>
                             <p class="card-text"><small class="text-muted">By {{art.author.name}} on {{art.createdAt | date}}</small></p>
-                            <button (click)='openModalForm("Update"); updateArticles(art.id)' class='btn bg-warning text-white mr-2'>Update</button>
-                            <button (click)='deleteArt(art.id, i)' class='btn bg-danger text-white'>Delete</button>
+                            <div *ngIf='art.author.id === auth_service.user?.id'>
+                                <button (click)='openModalForm("Update"); updateArticles(art.id)' class='btn bg-warning text-white mr-2'>Update</button>
+                                <button (click)='deleteArt(art.id, i)' class='btn bg-danger text-white'>Delete</button>
+                            </div>
                         </div>
                     </div>
                 </div>

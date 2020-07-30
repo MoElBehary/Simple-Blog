@@ -73,7 +73,6 @@ export class BlogFormModalComponent implements OnInit {
     this.blog_serv.getSelectedArticle(id).subscribe(
       res=>{
         this.artToUpdate = res
-        console.log(this.artToUpdate)
       }
     )
   }

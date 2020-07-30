@@ -16,7 +16,7 @@ export class UserBlogComponent implements OnInit {
   ngOnInit(): void {
     this.blog_serv.getAllArticles().subscribe(res => {
       this.articles = res   
-      console.log(this.articles) 
+
     });
   }
   showArticle(id){
